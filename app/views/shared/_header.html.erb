@@ -5,6 +5,12 @@
             <%= image_tag "rails-community.png" %>
         </a>
     </div>
+    <div>
+        <a>
+            <%= "#{current_user.email}としてログインしています" if user_signed_in? %>
+        </a>
+    </div>
+
     <div class="link">
         <ul id="nav">
         <% if user_signed_in? %>
