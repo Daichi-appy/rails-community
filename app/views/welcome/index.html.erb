@@ -36,11 +36,9 @@
                 <% end %>
                 <div class="action-menu">
                     <div class="like">
-                    
+                        いいね件数: <%= post.likes.count %> 
                     </div>
-                    <div class="comment">
-                
-                    </div>
+                    <%= button_to 'いいね', "/likes/#{post.id}/create" %>
                 </div>
             </div>
         <% end %>
