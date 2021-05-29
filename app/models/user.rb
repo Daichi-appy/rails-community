@@ -7,7 +7,10 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :like_posts, through: :likes, source: :post
+  
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
 
   delegate :name, :learning_history, :purpose, :image, to: :profile
 end
