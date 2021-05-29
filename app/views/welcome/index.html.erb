@@ -36,11 +36,13 @@
                 <% end %>
                 <div class="action-menu">
                     <div class="like">
-                    
+                        いいね件数: <%= post.likes.count %> 
                     </div>
-                    <div class="comment">
-                
-                    </div>
+                    <% if current_user.already_liked?(post) %>
+                        <%= link_to "いいねを外す", post_likes_path(post), method: :delete %>
+                    <% else %>
+                        <%= link_to "いいね", post_likes_path(post), method: :post %>
+                    <% end %>
                 </div>
             </div>
         <% end %>
