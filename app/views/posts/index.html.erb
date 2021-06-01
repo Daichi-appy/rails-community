@@ -13,7 +13,7 @@
                     <div class="profile">
                         <div class="name-history">
                             <div class="name">
-                                <%= post.user.name %>
+                                <%= link_to "#{post.user.name}", new_profile_path(id: post.id) %>
                             </div>
                             <div class="learning-history">
                                 <%= "学習歴: #{post.user.learning_history}年" %>

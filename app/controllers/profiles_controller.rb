@@ -5,8 +5,13 @@ class ProfilesController < ApplicationController
     end
 
     def new
-        return redirect_to edit_profile_path(current_user.profile) if current_user.profile.present?
-        @profile = Profile.new
+        @post = Post.find(id: params[:id])
+        if current_user == @post.user 
+            return redirect_to edit_profile_path(current_user.profile) if current_user.profile.present?
+            @profile = Profile.new
+        else
+            redirect_to root_path
+        end
     end
 
     def edit
